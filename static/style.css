@@ -9,3 +9,7 @@
 p {
     white-space: pre-wrap;
 }
+
+.shortened-description {
+    white-space: normal;
+}

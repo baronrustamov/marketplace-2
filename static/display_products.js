@@ -17,6 +17,7 @@ if (productContainer) {
         let productDescription = products[0].getElementsByClassName('col-md-4')[0].getElementsByTagName('p')[0];
         if (productDescription.innerHTML.length > 100) {
             productDescription.innerHTML = productDescription.innerHTML.slice(0, 100) + '...';
+            productDescription.className += 'shortened-description'
         }
 
         currentRow.appendChild(products[0]);
