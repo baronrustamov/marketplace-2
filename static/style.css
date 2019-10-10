@@ -1,7 +1,11 @@
 .product-image {
-    max-width: 100%
+    max-width: 100%;
 }
 
 .product {
-    display: inline
+    display: inline;
+}
+
+p {
+    white-space: pre-wrap;
 }
