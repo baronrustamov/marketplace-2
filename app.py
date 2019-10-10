@@ -7,8 +7,12 @@ app = Flask(__name__)
 
 host = os.environ.get('MONGODB_URI', 'mongodb://<ryanisawesome>:<makeschool2021>@ds233268.mlab.com:33268/heroku_9xxb7xjh')
 client = MongoClient(host=f'{host}?retryWrites=false')
-db = client.get_default_database()
+db = client.Marketplace
 marketplace = db.marketplace
+
+# client = MongoClient()
+# db = client.Marketplace
+# marketplace = db.marketplace
 
 @app.route('/')
 def index():
