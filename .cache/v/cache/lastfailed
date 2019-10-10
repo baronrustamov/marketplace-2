@@ -1,0 +1,4 @@
+{
+  "test_app.py::test_setup": true,
+  "test_app.py::test_show_product": true
+}
