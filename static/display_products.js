@@ -1,9 +1,9 @@
 let productContainer = document.getElementById('product-container');
 let container = document.getElementById('container');
 if (productContainer) {
-    let currentRow = null
+    let currentRow = null;
     let products = productContainer.children;
-    let numProducts = products.length
+    let numProducts = products.length;
 
     // Display only 3 products per row
     if (numProducts > 3) {

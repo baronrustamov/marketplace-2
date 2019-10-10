@@ -6,4 +6,6 @@
     <h3>{{ product.title }}</h3>
     <h4>Price: {{ product.price }}</h4>
     <p>{{ product.description }}</p>
+    <a href="/products/{{ product._id }}/edit"><button class="btn btn-primary mb-2">Edit product</button></a>
+    <a href="/products/{{ product._id }}/delete"><button class="btn btn-primary mb-2">Delete product</button></a>
 {% endblock %}

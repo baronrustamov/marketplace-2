@@ -25,11 +25,31 @@ def add_new_product():
         'image': request.form.get('picture')
     }
     product_id = marketplace.insert_one(new_product).inserted_id
-    return redirect('/')
+    return redirect('/products/'+str(product_id))
 
 @app.route('/products/<product_id>')
 def show_product(product_id):
     return render_template('show-product.html', product = marketplace.find_one({'_id': ObjectId(product_id)}))
+
+@app.route('/products/<product_id>/edit')
+def edit_product(product_id):
+    return render_template('edit-product.html', product = marketplace.find_one({'_id': ObjectId(product_id)}))
+
+@app.route('/products/<product_id>/edit-in-db', methods=['POST'])
+def edit_product_in_db(product_id):
+    modified_product = {
+        'title': request.form.get('title'),
+        'description': request.form.get('description'),
+        'price': request.form.get('price'),
+        'image': request.form.get('picture')
+    }
+    marketplace.update({'_id': ObjectId(product_id)}, modified_product)
+    return redirect('/products/'+product_id)
+
+@app.route('/products/<product_id>/delete')
+def delete_product(product_id):
+    marketplace.remove({'_id': ObjectId(product_id)})
+    return redirect('/')
 
 if __name__ == '__main__':
     app.run(debug=True)
