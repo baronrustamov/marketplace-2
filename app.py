@@ -1,11 +1,13 @@
 from flask import Flask, render_template, request, redirect
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+import os
 
 app = Flask(__name__)
 
-client = MongoClient()
-db = client.Marketplace
+host = os.environ.get('MONGODB_URI', 'mongodb://<ryanisawesome>:<makeschool2021>@ds233268.mlab.com:33268/heroku_9xxb7xjh')
+client = MongoClient(host=f'{host}?retryWrites=false')
+db = client.get_default_database()
 marketplace = db.marketplace
 
 @app.route('/')
@@ -59,4 +61,4 @@ def delete_product(product_id):
     return redirect('/')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=os.environ.get('PORT', 5000))
