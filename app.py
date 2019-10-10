@@ -3,6 +3,7 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 import os
 
+''' Comment out for testing with pytest '''
 host = os.environ.get('MONGODB_URI', 'mongodb://<ryanisawesome>:<makeschool2021>@ds233268.mlab.com:33268/heroku_9xxb7xjh')
 client = MongoClient(host=f'{host}?retryWrites=false')
 db = client.get_default_database()
@@ -10,6 +11,7 @@ marketplace = db.marketplace
 
 app = Flask(__name__)
 
+''' Uncomment for testing with pytest '''
 # client = MongoClient()
 # db = client.Marketplace
 # marketplace = db.marketplace
