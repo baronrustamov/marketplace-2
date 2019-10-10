@@ -3,6 +3,13 @@
 
 {% block content %}
     <div class='row'>
-        {% include 'partials/product.html' %}
+        {% for product in products %}
+            <div class="col-md-4">
+                <img class="product-image" src="{{ product.image }}" alt="{{ product.title }} prdouct image">
+                <h3>{{ product.title }}</h3>
+                <h4>Price: {{ product.price }}</h4>
+                <p>{{ product.description }}</p>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}
