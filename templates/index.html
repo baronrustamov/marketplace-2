@@ -2,14 +2,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class='row'>
-        {% for product in products %}
+    <div id='product-container'>
+    {% for product in products %}
+        <a href='/products/{{ product._id }}'>
             <div class="col-md-4">
-                <img class="product-image" src="{{ product.image }}" alt="{{ product.title }} prdouct image">
+                <img class="product-image" src="{{ product.image }}" alt="{{ product.title }} product image">
                 <h3>{{ product.title }}</h3>
                 <h4>Price: {{ product.price }}</h4>
                 <p>{{ product.description }}</p>
             </div>
-        {% endfor %}
+        </a>
+    {% endfor %}
     </div>
 {% endblock %}
